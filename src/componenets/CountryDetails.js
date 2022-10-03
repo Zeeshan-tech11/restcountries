@@ -18,7 +18,7 @@ function CountryDetails({country}) {
                 <div>Capital: <span>{country.capital}</span></div>
                 </div>
                 <div>
-                <div>Top Level Domain: <span>{country.capital}</span></div>
+                <div>Top Level Domain: <span>{country.topdomain}</span></div>
                 <div>Currencies: <span>{country.currencies?country.currencies.map(ele=>ele.name).join():""}</span></div>
                 <div>Language: <span>{country.languages?country.languages.map(ele=>ele.name).join():""}</span></div>
                 </div>

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Country from './Country'
 function Countries(props) {
   let{setCountryDetails}=props
+  let navigate=useNavigate()
   let [isLoading,setLoading]=useState(true)
   // origional data fetched from api
   let [data,setData]=useState([])
@@ -88,7 +90,10 @@ function Countries(props) {
   }
   if(isLoading){
     return <h1>Fetching Data from API .........</h1>
-  }else{
+  }else if(countries.length<=0){
+    navigate('/error')
+  }
+  else{
   return (
     <>
     <div className='search-box'>
@@ -100,7 +105,9 @@ function Countries(props) {
         ))}
       </select>
     </div>
+  
     <div className='countries'>
+      
         {countries.slice(page*8,page*8+8).map((country,idx)=>(
           <div onClick={()=>setCountryDetails(country)}>
           <Country country={country} key={idx}/>

@@ -3,6 +3,7 @@ import Countries from './componenets/Countries'
 import Navbar from './componenets/Navbar'
 import CountryDetails from './componenets/CountryDetails'
 import {Routes,Route,useNavigate} from 'react-router-dom'
+import Error from './componenets/Error'
 function App() {
   let [country,setCountryDetails]=useState({})
   let navigate=useNavigate()
@@ -22,6 +23,7 @@ function App() {
         <Route path='/details' element={<CountryDetails country={country}/>}
       >
       </Route>
+      <Route path='/error' element={<Error/>}></Route>
       </Routes>
     </div>
   
